@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
             break;
         // create record
         case 3:
-            newRecord(cfPtr);
+            newRecord(cfPtr); 
             break;
         // delete existing record
         case 4:
@@ -131,7 +131,7 @@ void updateRecord(FILE *fPtr)
 
         // move file pointer to correct record in file
         // move back by 1 record length
-        fseek(fPtr, -sizeof(struct clientData), SEEK_CUR);
+        fseek(fPtr, -(long)sizeof(struct clientData), SEEK_CUR);
         // write updated record over old record in file
         fwrite(&client, sizeof(struct clientData), 1, fPtr);
     } // end else
